@@ -5,7 +5,7 @@ This is a demonstration of exporting a Windows Host network interface / adapter 
  - windows side: AF_HYPERV sockets, Npcap;
  - linux side: AF_VSOCK and tuntap mode tap.
 
-The windows side app is written in Delphi 5. Yes, 32bit. Why? Because I can. The only downside of this (32bit) is that computecore.dll is not available for 32bit so the hcsdiag.ee output is used to get the running VMs. The running VMs list is necessary in order to get the GUID to bind the AF_HYPERV socket to. Moreover (not sure why - ask MS) Hcs enum calls (hence hcsdiag.exe) require admin privileges - so the app has to be run with those provided.
+The windows side app is written in Delphi 5. Yes, 32bit. Why? Because I can. The only downside of this (32bit) is that computecore.dll is not available for 32bit so the hcsdiag.exe output is used to get the running VMs. The running VMs list is necessary in order to get the GUID to bind the AF_HYPERV socket to. Moreover (not sure why - ask MS) Hcs enum calls (hence hcsdiag.exe) require admin privileges - so the app has to be run with those provided.
 
 The linux side is a small program that opens a tap device and connects to the windows (host) side via VSOCK and bridges both file descriptors.
 
